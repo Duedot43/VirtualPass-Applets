@@ -14,7 +14,7 @@ if (!isset($_COOKIE['com'])){
     exit();
 }
 else{
-    if (!file_exists("cookie/" . $_COOKIE['admin'])){
+    if (!file_exists("cookie/" . $_COOKIE['com'])){
         header("Location: /com_checkout/admin/index.html");
         exit();
     }
@@ -29,4 +29,4 @@ check_phid($_COOKIE['com']);
 
 
 
-<input class="reg" type="button" value="Reload room DB" onclick="location='reload.php'" />
+<input class="reg" type="button" value="Rebuild room DB" onclick="location='reload.php'" />

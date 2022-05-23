@@ -63,7 +63,7 @@ if ($_GET['step'] = "1"){
     if (file_exists("../../../../mass.json")){
         echo "building room DB please wait...";
         $mass = json_decode(file_get_contents("../../../../mass.json"), true);
-        $com_index = json_decode(file_get_contents("https://raw.githubusercontent.com/mjones57575757/VirtualPass-Applets/master/Plugins/cart_checkout/new_files/com_config/base_cart.json"), true);
+        $com_index = json_decode(file_get_contents("https://raw.githubusercontent.com/Duedot43/VirtualPass-Applets/master/Plugins/cart_checkout/new_files/com_config/base_cart.json"), true);
         foreach ($mass['room'] as $room_id){
             $real_room = file_get_contents("../../../../src/registerd_qrids/" . $room_id);
             $com_index['rooms'][$room_id] = array(
