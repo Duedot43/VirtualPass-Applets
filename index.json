@@ -181,15 +181,14 @@
         "2":"None",
         "3":"None"
       },
-      "to_remove_file":"6",
+      "to_remove_file":"5",
       "remove_file":{
         "0":"/src/dev_checkout/index.php",
         "1":"/dev_config/dev_index.json",
         "2":"/dev_config/auth.json",
         "3":"/src/dev_checkout/admin/cklogin.php",
         "4":"/src/dev_checkout/admin/index.html",
-        "5":"/src/dev_checkout/admin/menu.php",
-        "6":"/src/dev_checkout/admin/reload.php"
+        "5":"/src/dev_checkout/admin/menu.php"      
       },
       "to_remove_dir":"3",
       "remove_dir":{
