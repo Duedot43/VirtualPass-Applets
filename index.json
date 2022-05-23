@@ -197,9 +197,9 @@
         "2":"/src/dev_checkout/admin",
         "3":"/src/dev_checkout"
       },
-      "vers":"0",
+      "vers":"3",
       "valid_ver":{
-        "0":"testing",
+        "0":"V9.0",
         "1":"V9.1",
         "2":"V9.2",
         "3":"V9.3"
