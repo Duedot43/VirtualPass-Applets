@@ -13,7 +13,7 @@ if ($_GET['step'] == "0"){
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Register</title>
             <tr>
-                <form method="post" name="form" action="/administrator/plugin_manager/tmp/setup.php?plugin=' . $_GET['plugin'] . '&setup=0">
+                <form method="post" name="form" action="/administrator/plugin_manager/tmp/setup.php?plugin=' . $_GET['plugin'] . '&step=0">
                     <td>
                         <table width="100%" border="0" cellpadding="3" cellspacing="1">
                             <tr>
