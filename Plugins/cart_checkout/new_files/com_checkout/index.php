@@ -10,6 +10,8 @@ if(!isset($index_json['carts'][$cart])){
     exit();
 }
 if (isset($_POST['room'])){
+
+
     $room_sub = $_POST['room'];
     $mass_json = json_decode(file_get_contents("../../mass.json"), true);
     foreach ($mass_json['room'] as $room_id){
@@ -19,6 +21,23 @@ if (isset($_POST['room'])){
             break;
         }
     }
+    $cart_room = $index_json['carts'][$cart]['room'];
+    if ($cart_room != 0){
+        foreach ($mass_json['room'] as $room_id){
+            $real_room = file_get_contents("../registerd_qrids/" . $room_id);
+            if ($cart_room == $real_room){
+                $cart_room_id = $room_id;
+                break;
+            }
+        }
+        $index_json['rooms'][$cart_room_id]['carts'] = \array_diff($index_json['rooms'][$cart_room_id]['carts'], [$cart]);
+    }
+    if (!isset($sub_room_id)){
+        echo "That room does not exist! Please try agian...";
+    }
+    array_push($index_json['rooms'][$sub_room_id]['carts'], $cart);
+    file_put_contents("../../com_config/com_index.json", json_encode($index_json));
+    echo "Cart moved!";
 }
 ?>
 <title>Login</title>
