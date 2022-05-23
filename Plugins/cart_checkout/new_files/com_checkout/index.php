@@ -36,6 +36,7 @@ if (isset($_POST['room'])){
         echo "That room does not exist! Please try agian...";
     }
     array_push($index_json['rooms'][$sub_room_id]['carts'], $cart);
+    $index_json['carts']['room'] = $sub_room_id;
     file_put_contents("../../com_config/com_index.json", json_encode($index_json));
     echo "Cart moved!";
 }
