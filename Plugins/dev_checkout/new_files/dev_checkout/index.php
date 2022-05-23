@@ -85,7 +85,7 @@ if (!isset($index_json['computers'][$dev])){
     if (isset($_POST['cart'])){
         $cart = $_POST['cart'];
         $com_json = json_decode(file_get_contents("../../com_config/com_index.json"), true);
-        array_push($com_json['carts'][$cart]['devices'], $cart);
+        array_push($com_json['carts'][$cart]['devices'], $dev);
         file_put_contents("../../com_config/com_index.json", json_encode($com_json));
     } else{
         $cart = 0;
