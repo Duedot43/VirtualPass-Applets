@@ -13,7 +13,7 @@ if (isset($_POST['uname']) and isset($_POST['passwd'])){
         $ran = rand();
         setcookie("com", $ran, time() - (1200), "/", $domain, TRUE, TRUE);
         setcookie("com", $ran, time() + (1200), "/", $domain, TRUE, TRUE);
-        file_put_contents("./cookie/" . $ran, $ran);
+        file_put_contents("../../administrator/cookie/" . $ran, $ran);
         header("Location: /com_checkout/admin/menu.php");
         exit();
     }
