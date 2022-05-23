@@ -28,7 +28,7 @@ if ($ini['overide_automatic_domain_name'] != "1"){
   $domain = $_SERVER['SERVER_NAME'];
 }
 $cart = rand();
-$com_index = file_get_contents("../../com_config/com_index.json");
+$com_index = json_decode(file_get_contents("../../com_config/com_index.json"), true);
 $com_index['carts'][$cart] = array(
     "activity"=>"Departed"
 );
