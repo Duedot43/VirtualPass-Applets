@@ -20,10 +20,6 @@ else{
     }
 }
 check_phid($_COOKIE['com']);
-if(!isset($_GET['cart'])){
-    echo("Your cart variable is not set!");
-    exit();
-}
 $ini = parse_ini_file('../../config/config.ini');
 if ($ini['overide_automatic_domain_name'] == "1"){
   $domain = $ini['domain_name'];
@@ -32,7 +28,7 @@ if ($ini['overide_automatic_domain_name'] != "1"){
   $domain = $_SERVER['SERVER_NAME'];
 }
 $cart = rand();
-$com_index = file_get_contents("../../com_config/com_index.php");
+$com_index = file_get_contents("../../com_config/com_index.json");
 $com_index['carts'][$cart] = array(
     "activity"=>"Departed"
 );
