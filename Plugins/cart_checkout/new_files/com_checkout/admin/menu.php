@@ -43,4 +43,4 @@ if (isset($_GET['page']) and $_GET['page'] == "view_room"){
 
 <input class="reg" type="button" value="Rebuild room DB" onclick="location='reload.php'" />
 <input class="reg" type="button" value="Make cart" onclick="location='/com_checkout/regcart.php'" />
-<input class="reg" type="button" value="View rooms with carts" onclick="location='/com_checkout/menu.php?page=view_room'" />
+<input class="reg" type="button" value="View rooms with carts" onclick="location='/com_checkout/admin/menu.php?page=view_room'" />
