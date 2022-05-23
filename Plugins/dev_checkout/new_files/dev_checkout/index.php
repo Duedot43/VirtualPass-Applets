@@ -64,7 +64,7 @@ if (!isset($index_json['computers'][$dev])){
                                 </strong></td>
                         </tr>
                         <tr>
-                            <td>Room number</td>
+                            <td>Cart ID</td>
                             <td>:</td>
                             <td><input class="box" name="cart" type="number" id="cart" autocomplete="off" required></td>
                         </tr>
