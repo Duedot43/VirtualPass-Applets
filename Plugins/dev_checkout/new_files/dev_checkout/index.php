@@ -6,7 +6,7 @@ if(!isset($_GET['cart'])){
 $cart = $_GET['cart'];
 $index_json = json_decode(file_get_contents("../../com_config/com_index.json"), true);
 if(!isset($index_json['carts'][$cart])){
-    echo "Your cart does not exiest! Please contact an administrator to resolve this";
+    echo "Your computer does not exiest! Please contact an administrator to resolve this";
     exit();
 }
 if (isset($_POST['room'])){

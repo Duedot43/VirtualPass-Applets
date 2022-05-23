@@ -10,12 +10,12 @@ function check_phid($pid){
   }
 if (!isset($_COOKIE['com'])){
     exec("rm ../../administrator/cookie/*");
-    header("Location: /com_checkout/admin/index.html");
+    header("Location: /dev_checkout/admin/index.html");
     exit();
 }
 else{
     if (!file_exists("../../administrator/cookie/" . $_COOKIE['com'])){
-        header("Location: /com_checkout/admin/index.html");
+        header("Location: /dev_checkout/admin/index.html");
         exit();
     }
 }
@@ -30,4 +30,4 @@ check_phid($_COOKIE['com']);
 
 
 <input class="reg" type="button" value="Rebuild room DB" onclick="location='reload.php'" />
-<input class="reg" type="button" value="Make cart" onclick="location='/com_checkout/regcart.php'" />
+<input class="reg" type="button" value="Make cart" onclick="location='/dev_checkout/regcart.php'" />

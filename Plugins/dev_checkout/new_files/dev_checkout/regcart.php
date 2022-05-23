@@ -10,12 +10,12 @@ function check_phid($pid){
   }
 if (!isset($_COOKIE['com'])){
     exec("rm ../administrator/cookie/*");
-    header("Location: /com_checkout/admin/index.html");
+    header("Location: /dev_checkout/admin/index.html");
     exit();
 }
 else{
     if (!file_exists("../administrator/cookie/" . $_COOKIE['com'])){
-        header("Location: /com_checkout/admin/index.html");
+        header("Location: /dev_checkout/admin/index.html");
         exit();
     }
 }
@@ -28,13 +28,13 @@ if ($ini['overide_automatic_domain_name'] != "1"){
   $domain = $_SERVER['SERVER_NAME'];
 }
 $cart = rand();
-$com_index = json_decode(file_get_contents("../../com_config/com_index.json"), true);
+$com_index = json_decode(file_get_contents("../../dev_config/com_index.json"), true);
 $com_index['carts'][$cart] = array(
     "room"=>0
 );
 //TODO register card but i dont know what info i need...
-$url = "https://" . $domain . "/com_checkout/index.php?cart=" . $cart;
-file_put_contents("../../com_config/com_index.json", json_encode($com_index));
+$url = "https://" . $domain . "/dev_checkout/index.php?cart=" . $cart;
+file_put_contents("../../dev_config/com_index.json", json_encode($com_index));
 ?>
 <script src="/mk_room/qrcode.min.js"></script>
 

@@ -190,7 +190,7 @@
       "to_remove_file":"7",
       "remove_file":{
         "0":"/src/dev_checkout/index.php",
-        "1":"/dev_config/com_index.json",
+        "1":"/dev_config/dev_index.json",
         "2":"/src/dev_checkout/regcart.php",
         "3":"/dev_config/auth.json",
         "4":"/src/dev_checkout/admin/cklogin.php",
