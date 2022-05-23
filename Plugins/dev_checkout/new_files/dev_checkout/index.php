@@ -84,18 +84,16 @@ if (!isset($index_json['computers'][$dev])){
     }
     if (isset($_POST['cart'])){
         $cart = $_POST['cart'];
+        $com_json = json_decode(file_get_contents("../../com_config/com_index.json"), true);
+        array_push($com_json['carts'][$cart]['devices'], $cart);
+        file_put_contents("../../com_config/com_index.json", json_encode($com_json));
     } else{
         $cart = 0;
     }
     $index_json['computers'][$dev] = array(
         "cart"=>$cart,
         "computer"=>$dev,
-        "user"=>array(
-                array(
-                    "date"=>date('l jS \of F Y h:i:s A'),
-                    "user"=>$_COOKIE['phid']
-                )
-        )
+        "user"=>array()
     );
     file_put_contents("../../dev_config/dev_index.json", json_encode($index_json));
 }
