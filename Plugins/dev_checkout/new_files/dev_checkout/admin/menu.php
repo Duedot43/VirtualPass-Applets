@@ -8,18 +8,18 @@ function check_phid($pid){
       exit();
     }
   }
-if (!isset($_COOKIE['com'])){
+if (!isset($_COOKIE['dev'])){
     exec("rm ../../administrator/cookie/*");
     header("Location: /dev_checkout/admin/index.html");
     exit();
 }
 else{
-    if (!file_exists("../../administrator/cookie/" . $_COOKIE['com'])){
+    if (!file_exists("../../administrator/cookie/" . $_COOKIE['dev'])){
         header("Location: /dev_checkout/admin/index.html");
         exit();
     }
 }
-check_phid($_COOKIE['com']);
+check_phid($_COOKIE['dev']);
 ?>
 <head>
     <link href="/style.css" rel="stylesheet" type="text/css" />

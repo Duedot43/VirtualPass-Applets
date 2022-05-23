@@ -109,29 +109,4 @@ file_put_contents("../../dev_config/dev_index.json", json_encode($index_json));
     <link href="/style.css" rel="stylesheet" type="text/css" />
 </head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<tr>
-    <form method="post" name="form" action="/com_checkout/index.php?cart=<?php echo $cart;?>">
-        <td>
-            <table width="100%" border="0" cellpadding="3" cellspacing="1">
-                <tr>
-                    <td colspan="3"><strong>Move it!
-                            <hr />
-                        </strong></td>
-                </tr>
-                <tr>
-                    <td>Room number</td>
-                    <td>:</td>
-                    <td><input class="box" name="room" type="number" id="room" autocomplete="off" required></td>
-                </tr>
-</tr>
-<tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td><input class="reg" type="submit" name="Submit" value="Move!"></td>
-</tr>
-</table>
-</td>
-</form>
-</tr>
-</table>
+Computer succesfully checked out.
