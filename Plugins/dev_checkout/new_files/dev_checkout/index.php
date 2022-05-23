@@ -46,7 +46,7 @@ if (!isset($index_json['computers'][$dev])){
     if (!isset($_COOKIE['phid'])){
         //make the user but ill do this later TODO
     }
-    if (is_dir("../../com_config")){
+    if (is_dir("../../com_config") and !isset($_POST['cart'])){
         echo '
             <title>What cart</title>
         <head>
@@ -91,39 +91,18 @@ if (!isset($index_json['computers'][$dev])){
         "cart"=>$cart,
         "computer"=>$dev,
         "user"=>array(
-            $_COOKIE['phid']=>array(
-                "date"=>date('l jS \of F Y h:i:s A'),
-                "user"=>$_COOKIE['phid']
+                array(
+                    "date"=>date('l jS \of F Y h:i:s A'),
+                    "user"=>$_COOKIE['phid']
                 )
         )
     );
+    file_put_contents("../../dev_config/dev_index.json", json_encode($index_json));
 }
-if (isset($_POST['room'])){
+$index_json = json_decode(file_get_contents("../../dev_config/dev_index.json"), true);
+array_push($index_json['computers'][$dev]['user'], array("date"=>date('l jS \of F Y h:i:s A'),"user"=>$_COOKIE['phid']));
+file_put_contents("../../dev_config/dev_index.json", json_encode($index_json));
 
-
-    $room_sub = $_POST['room'];
-    $mass_json = json_decode(file_get_contents("../../mass.json"), true);
-    foreach ($mass_json['room'] as $room_id){
-        $real_room = file_get_contents("../registerd_qrids/" . $room_id);
-        if ($room_sub == $real_room){
-            $sub_room_id = $room_id;
-            break;
-        }
-    }
-    $cart_room = $index_json['carts'][$cart]['room'];
-    if ($cart_room != 0){
-        $index_json['rooms'][$cart_room]['carts'] = \array_diff($index_json['rooms'][$cart_room]['carts'], [$cart]);
-        unset($index_json['rooms'][$cart_room]['carts'][$cart]);
-    }
-    if (!isset($sub_room_id)){
-        echo "That room does not exist!";
-        exit();
-    }
-    array_push($index_json['rooms'][$sub_room_id]['carts'], $cart);
-    $index_json['carts'][$cart]['room'] = $sub_room_id;
-    file_put_contents("../../com_config/com_index.json", json_encode($index_json));
-    echo "Cart moved!";
-}
 ?>
 <title>Take a computer</title>
 <head>
