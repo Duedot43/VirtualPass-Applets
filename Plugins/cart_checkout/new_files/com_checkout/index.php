@@ -23,15 +23,8 @@ if (isset($_POST['room'])){
     }
     $cart_room = $index_json['carts'][$cart]['room'];
     if ($cart_room != 0){
-        foreach ($mass_json['room'] as $room_id){
-            $real_room = file_get_contents("../registerd_qrids/" . $room_id);
-            if ($cart_room == $real_room){
-                $cart_room_id = $room_id;
-                break;
-            }
-        }
-        $index_json['rooms'][$cart_room_id]['carts'] = \array_diff($index_json['rooms'][$cart_room_id]['carts'], [$cart]);
-        unset($index_json['rooms'][$cart_room_id]['carts'][$cart]);
+        $index_json['rooms'][$cart_room]['carts'] = \array_diff($index_json['rooms'][$cart_room]['carts'], [$cart]);
+        unset($index_json['rooms'][$cart_room]['carts'][$cart]);
     }
     if (!isset($sub_room_id)){
         echo "That room does not exist! Please try agian...";
