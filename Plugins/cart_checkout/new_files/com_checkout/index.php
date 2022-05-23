@@ -41,24 +41,23 @@ if (isset($_POST['room'])){
     echo "Cart moved!";
 }
 ?>
-<title>Login</title>
+<title>Move a cart</title>
 <head>
     <link href="/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Register</title>
 <tr>
     <form method="post" name="form" action="/com_checkout/index.php?cart=<?php echo $cart;?>">
         <td>
             <table width="100%" border="0" cellpadding="3" cellspacing="1">
                 <tr>
-                    <td colspan="3"><strong>Login
+                    <td colspan="3"><strong>Move it!
                             <hr />
                         </strong></td>
                 </tr>
                 <tr>
-                    <td>Password</td>
+                    <td>Room number</td>
                     <td>:</td>
                     <td><input class="box" name="room" type="number" id="room" autocomplete="off" required></td>
                 </tr>
