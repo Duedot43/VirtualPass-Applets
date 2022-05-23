@@ -4,22 +4,22 @@ if(!isset($_GET['cart'])){
     exit();
 }
 $cart = $_GET['cart'];
-$index_json = json_decode(file_get_contents("../../com_config/com_index.josn"), true);
+$index_json = json_decode(file_get_contents("../../com_config/com_index.json"), true);
 if(!isset($index_json['carts'][$cart])){
     echo "Your cart does not exiest! Please contact an administrator to resolve this";
     exit();
 }
 if (isset($_GET['activity']) and $_GET['activity'] == "Depart"){
-    $index_json['carts'][$cart]['status'] = "Arrived";
+    $index_json['carts'][$cart]['activity'] = "Arrived";
     file_put_contents("../../com_config/com_index.josn", json_encode($index_json));
 }
 if (isset($_GET['activity']) and $_GET['activity'] == "Arrive"){
     //arrive the cart
-    $index_json['carts'][$cart]['status'] = "Departed";
+    $index_json['carts'][$cart]['activity'] = "Departed";
     file_put_contents("../../com_config/com_index.josn", json_encode($index_json));
 }
 $cart_arr = $index_json['carts'][$cart];
-if ($cart_arr['status'] == "Departed"){
+if ($cart_arr['activity'] == "Departed"){
     $activ = "Arrive";
 } else{
     $activ = "Depart";
