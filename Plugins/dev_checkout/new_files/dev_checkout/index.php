@@ -1,13 +1,102 @@
 <?php
-if(!isset($_GET['cart'])){
-    echo("Your cart variable is not set!");
-    exit();
+if(!isset($_GET['dev'])){
+    if (!isset($_POST['id'])){
+        echo '
+            <title>What computer</title>
+        <head>
+            <link href="/style.css" rel="stylesheet" type="text/css" />
+        </head>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <tr>
+            <form method="post" name="form" action="/dev_checkout/index.php">
+                <td>
+                    <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                        <tr>
+                            <td colspan="3"><strong>Type the ID of the computer you are trying to checkout
+                                    <hr />
+                                </strong></td>
+                        </tr>
+                        <tr>
+                            <td>ID</td>
+                            <td>:</td>
+                            <td><input class="box" name="id" type="number" id="id" autocomplete="off" required></td>
+                        </tr>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><input class="reg" type="submit" name="Submit" value="Submit"></td>
+        </tr>
+        </table>
+        </td>
+        </form>
+        </tr>
+        </table>
+        ';
+        exit();
+    } else{
+        header("Location: /dev_checkout/index.php?dev=" . $_POST['id']);
+        exit();
+    }
 }
-$cart = $_GET['cart'];
-$index_json = json_decode(file_get_contents("../../com_config/com_index.json"), true);
-if(!isset($index_json['carts'][$cart])){
-    echo "Your computer does not exiest! Please contact an administrator to resolve this";
-    exit();
+$dev = $_GET['dev'];
+$index_json = json_decode(file_get_contents("../../dev_config/dev_index.json"), true);
+if (!isset($index_json['computers'][$dev])){
+    if (!isset($_COOKIE['phid'])){
+        //make the user but ill do this later TODO
+    }
+    if (is_dir("../../com_config")){
+        echo '
+            <title>What cart</title>
+        <head>
+            <link href="/style.css" rel="stylesheet" type="text/css" />
+        </head>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <tr>
+            <form method="post" name="form" action="/dev_checkout/index.php?dev=' . $dev . '">
+                <td>
+                    <table width="100%" border="0" cellpadding="3" cellspacing="1">
+                        <tr>
+                            <td colspan="3"><strong>Enter the cart ID specified on the side of the cart you are taking this computer from
+                                    <hr />
+                                </strong></td>
+                        </tr>
+                        <tr>
+                            <td>Room number</td>
+                            <td>:</td>
+                            <td><input class="box" name="cart" type="number" id="cart" autocomplete="off" required></td>
+                        </tr>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td><input class="reg" type="submit" name="Submit" value="Submit"></td>
+        </tr>
+        </table>
+        </td>
+        </form>
+        </tr>
+        </table>
+        ';
+        exit();
+    }
+    if (isset($_POST['cart'])){
+        $cart = $_POST['cart'];
+    } else{
+        $cart = 0;
+    }
+    $index_json['computers'][$dev] = array(
+        "cart"=>$cart,
+        "computer"=>$dev,
+        "user"=>array(
+            $_COOKIE['phid']=>array(
+                "date"=>date('l jS \of F Y h:i:s A'),
+                "user"=>$_COOKIE['phid']
+                )
+        )
+    );
 }
 if (isset($_POST['room'])){
 
@@ -36,7 +125,7 @@ if (isset($_POST['room'])){
     echo "Cart moved!";
 }
 ?>
-<title>Move a cart</title>
+<title>Take a computer</title>
 <head>
     <link href="/style.css" rel="stylesheet" type="text/css" />
 </head>

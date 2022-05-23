@@ -29,5 +29,4 @@ check_phid($_COOKIE['com']);
 
 
 
-<input class="reg" type="button" value="Rebuild room DB" onclick="location='reload.php'" />
-<input class="reg" type="button" value="Make cart" onclick="location='/dev_checkout/regcart.php'" />
+<input class="reg" type="button" value="View devices in library card format" onclick="location='/dev_checkout/admin/menu.php?mode=view'" />

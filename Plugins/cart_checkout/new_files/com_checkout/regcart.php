@@ -30,7 +30,8 @@ if ($ini['overide_automatic_domain_name'] != "1"){
 $cart = rand();
 $com_index = json_decode(file_get_contents("../../com_config/com_index.json"), true);
 $com_index['carts'][$cart] = array(
-    "room"=>0
+    "room"=>0,
+    "devices"=>array()
 );
 //TODO register card but i dont know what info i need...
 $url = "https://" . $domain . "/com_checkout/index.php?cart=" . $cart;

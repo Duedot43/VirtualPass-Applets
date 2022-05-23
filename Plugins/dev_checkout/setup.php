@@ -60,21 +60,7 @@ if ($_GET['step'] = "1"){
     mkdir("../../../../src/dev_checkout");
     mkdir("../../../../src/dev_checkout/admin");
     mkdir("../../../../src/dev_checkout/admin/cookie");
-    if (file_exists("../../../../mass.json")){
-        echo "building room DB please wait...";
-        $mass = json_decode(file_get_contents("../../../../mass.json"), true);
-        $com_index = json_decode(file_get_contents("https://raw.githubusercontent.com/Duedot43/VirtualPass-Applets/master/Plugins/dev_checkout/new_files/dev_config/base_cart.json"), true);
-        foreach ($mass['room'] as $room_id){
-            $real_room = file_get_contents("../../../../src/registerd_qrids/" . $room_id);
-            $com_index['rooms'][$room_id] = array(
-                "carts"=>array(),
-                "real_room"=>$real_room
-            );
-        }
-        file_put_contents("../../../../dev_config/dev_index.json", json_encode($com_index));
-    } else{
-        file_put_contents("../../../../dev_config/dev_index.json", file_get_contents("https://raw.githubusercontent.com/Duedot43/VirtualPass-Applets/master/Plugins/dev_checkout/new_files/dev_config/base_cart.json"));
-    }
+    file_put_contents("../../../../dev_config/dev_index.json", file_get_contents("https://raw.githubusercontent.com/Duedot43/VirtualPass-Applets/master/Plugins/dev_checkout/new_files/dev_config/base_cart.json"));
     header("Location: /administrator/plugin_manager/use_plugin.php?plugin=" . $_GET['plugin'] . "&setup=1");
     exit();
 }
