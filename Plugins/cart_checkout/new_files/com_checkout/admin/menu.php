@@ -30,3 +30,4 @@ check_phid($_COOKIE['com']);
 
 
 <input class="reg" type="button" value="Rebuild room DB" onclick="location='reload.php'" />
+<input class="reg" type="button" value="Make cart" onclick="location='/com_checkout/regcart.php'" />
