@@ -50,6 +50,7 @@ if ($_GET['step'] == "0"){
             "uname"=>$_POST['uname'],
             "passwd"=>$_POST['passwd']
         );
+        mkdir("../../../../com_config");
         file_put_contents("../../../../com_config/auth.json", json_encode($auth_json));
         header("Location: /administrator/plugin_manager/tmp/setup.php?plugin=" . $_GET['plugin'] . "&step=1");
         exit();
@@ -57,7 +58,6 @@ if ($_GET['step'] == "0"){
 }
 if ($_GET['step'] = "1"){
     mkdir("../../../../src/com_checkout");
-    mkdir("../../../../com_config");
     mkdir("../../../../src/com_checkout/admin");
     mkdir("../../../../src/com_checkout/admin/cookie");
     if (file_exists("../../../../mass.json")){
@@ -72,6 +72,8 @@ if ($_GET['step'] = "1"){
             );
         }
         file_put_contents("../../../../com_config/com_index.json", json_encode($com_index));
+    } else{
+        file_put_contents("../../../../com_config/com_index.json", file_get_contents("https://raw.githubusercontent.com/Duedot43/VirtualPass-Applets/master/Plugins/cart_checkout/new_files/com_config/base_cart.json"));
     }
     header("Location: /administrator/plugin_manager/use_plugin.php?plugin=" . $_GET['plugin'] . "&setup=1");
     exit();
