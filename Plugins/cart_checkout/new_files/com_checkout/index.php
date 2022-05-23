@@ -31,12 +31,13 @@ if (isset($_POST['room'])){
             }
         }
         $index_json['rooms'][$cart_room_id]['carts'] = \array_diff($index_json['rooms'][$cart_room_id]['carts'], [$cart]);
+        unset($index_json['rooms'][$cart_room_id]['carts'][$cart]);
     }
     if (!isset($sub_room_id)){
         echo "That room does not exist! Please try agian...";
     }
     array_push($index_json['rooms'][$sub_room_id]['carts'], $cart);
-    $index_json['carts']['room'] = $sub_room_id;
+    $index_json['carts'][$cart]['room'] = $sub_room_id;
     file_put_contents("../../com_config/com_index.json", json_encode($index_json));
     echo "Cart moved!";
 }
