@@ -27,7 +27,8 @@ if (isset($_POST['room'])){
         unset($index_json['rooms'][$cart_room]['carts'][$cart]);
     }
     if (!isset($sub_room_id)){
-        echo "That room does not exist! Please try agian...";
+        echo "That room does not exist!";
+        exit();
     }
     array_push($index_json['rooms'][$sub_room_id]['carts'], $cart);
     $index_json['carts'][$cart]['room'] = $sub_room_id;
