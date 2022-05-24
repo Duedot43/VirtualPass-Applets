@@ -42,6 +42,7 @@ if (isset($_GET['mode'])){
             $user_checkout = parse_ini_file("../../registered_phid/" . $who_checkout['user']);
             echo $user_checkout['first_name'] . " " . $user_checkout['last_name'] . " " . $user_checkout['student_id'] . "<br>" . $who_checkout['date'] . "<br><br>";
         }
+        echo '<button class="reg" onclick="location=\'/dev_checkout/admin/menu.php?mode=clear&room=' . $_GET['mode'] . '\'" >Clear entries</button>';
         exit();
     }
     if ($_GET['mode'] == "qr"){
@@ -63,6 +64,12 @@ if (isset($_GET['mode'])){
         </script>
         ';
         exit();
+    }
+    if ($_GET['mode']){
+        $dev_json = json_decode(file_get_contents("../../../dev_config/dev_index.json"), true);
+        $dev_json['computers'][$_GET['room']]['user'] = array();
+        file_put_contents("../../../dev_config/dev_index.json", json_encode($dev_json));
+        echo "Computer user list cleared";
     }
 }
 ?>
