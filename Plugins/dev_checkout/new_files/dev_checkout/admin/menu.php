@@ -50,7 +50,7 @@ if (isset($_GET['mode'])){
 
         <!-- (B) GENERATE QR CODE HERE -->
         <div id="qrcode"></div>
-        <a href="" id="dbth" download="<?php echo "cart_" . $cart?>" >Download QR code</a>
+        <a href="" id="dbth" download="QR_Code" >Download QR code</a>
         <!-- (C) CREATE QR CODE ON PAGE LOAD -->
         <script>
         window.addEventListener("load", () => {
