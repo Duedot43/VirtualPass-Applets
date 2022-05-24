@@ -20,6 +20,13 @@ else{
     }
 }
 check_phid($_COOKIE['dev']);
+$ini = parse_ini_file('../../../config/config.ini');
+if ($ini['overide_automatic_domain_name'] == "1"){
+  $domain = $ini['domain_name'];
+}
+if ($ini['overide_automatic_domain_name'] != "1"){
+  $domain = $_SERVER['SERVER_NAME'];
+}
 if (isset($_GET['mode'])){
     if ($_GET['mode'] == "view"){
         echo '<link href="/style.css" rel="stylesheet" type="text/css" />';
@@ -37,6 +44,25 @@ if (isset($_GET['mode'])){
         }
         exit();
     }
+    if ($_GET['mode'] == "qr"){
+        echo '
+        <script src="/mk_room/qrcode.min.js"></script>
+
+        <!-- (B) GENERATE QR CODE HERE -->
+        <div id="qrcode"></div>
+        <a href="" id="dbth" download="<?php echo "cart_" . $cart?>" >Download QR code</a>
+        <!-- (C) CREATE QR CODE ON PAGE LOAD -->
+        <script>
+        window.addEventListener("load", () => {
+        var qrc = new QRCode(document.getElementById("qrcode"), "https://' . $domain . '/dev_checkout/");
+        const div = document.createElement("div");
+        new QRCode(div, "https://' . $domain . '/dev_checkout/");
+        var thing = div.children[0].toDataURL("image/png");
+        document.querySelector("#dbth").href = thing;
+        });
+        </script>
+        ';
+    }
 }
 ?>
 <head>
@@ -48,3 +74,4 @@ if (isset($_GET['mode'])){
 
 
 <input class="reg" type="button" value="View devices in library card format" onclick="location='/dev_checkout/admin/menu.php?mode=view'" />
+<input class="reg" type="button" value="Make the QR code for checking out computers" onclick="location='/dev_checkout/admin/menu.php?mode=qr'" />
