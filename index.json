@@ -13,7 +13,7 @@
         "0":"https://raw.githubusercontent.com/Duedot43/VirtualPass-Applets/master/Plugins/version/menu.php"
       },
       "orig_url":{
-        "0":"https://raw.githubusercontent.com/Duedot43/VirtualPass/V9.2/src/administrator/menu.php"
+        "0":"https://raw.githubusercontent.com/Duedot43/VirtualPass/V9.3/src/administrator/menu.php"
       },
       "to_remove_file":"0",
       "remove_file":{
@@ -44,7 +44,7 @@
         "0":"https://raw.githubusercontent.com/Duedot43/VirtualPass-Applets/master/Plugins/teacher_auth/teacher_auth.php"
       },
       "orig_url":{
-        "0":"https://raw.githubusercontent.com/Duedot43/VirtualPass/V9.2/src/usr_pre_fls/teacher_auth.php"
+        "0":"https://raw.githubusercontent.com/Duedot43/VirtualPass/V9.3/src/usr_pre_fls/teacher_auth.php"
       },
       "to_remove_file":"0",
       "remove_file":{
@@ -78,7 +78,7 @@
       },
       "orig_url":{
         "0":"None",
-        "1":"https://raw.githubusercontent.com/Duedot43/VirtualPass/V9.2/config/config.ini"
+        "1":"https://raw.githubusercontent.com/Duedot43/VirtualPass/V9.3/config/config.ini"
       },
       "to_remove_file":"5",
       "remove_file":{
