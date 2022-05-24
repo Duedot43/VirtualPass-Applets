@@ -46,7 +46,7 @@ if (!isset($index_json['computers'][$dev])){
     if (!isset($_COOKIE['phid'])){
         //make the user but ill do this later TODO
     }
-    if (is_dir("../../com_config") and !isset($_POST['cart'])){
+    if (is_dir("../../com_config") and !isset($_POST['cart']) and !isset($index_json['computers']['cart'])){
         echo '
             <title>What cart</title>
         <head>

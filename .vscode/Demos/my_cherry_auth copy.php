@@ -16,7 +16,7 @@ if (isset($_POST['uname']) and isset($_POST['passwd'])){
 
 <title>Login</title>
 <head>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
