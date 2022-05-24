@@ -35,6 +35,7 @@ if (isset($_GET['mode'])){
             $user_checkout = parse_ini_file("../../registered_phid/" . $who_checkout['user']);
             echo $user_checkout['first_name'] . " " . $user_checkout['last_name'] . " " . $user_checkout['student_id'] . "<br>" . $who_checkout['date'] . "<br><br>";
         }
+        exit();
     }
 }
 ?>
