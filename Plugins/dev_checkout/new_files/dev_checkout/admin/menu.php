@@ -62,6 +62,7 @@ if (isset($_GET['mode'])){
         });
         </script>
         ';
+        exit();
     }
 }
 ?>
