@@ -31,7 +31,7 @@ if (isset($_GET['mode'])){
     if (is_numeric($_GET['mode'])){
         echo '<link href="/style.css" rel="stylesheet" type="text/css" />';
         $computer_json = json_decode(file_get_contents("../../../dev_config/dev_index.json"), true)['computers'][$_GET['mode']];
-        foreach ($computer_json['users'] as $who_checkout){
+        foreach ($computer_json['user'] as $who_checkout){
             $user_checkout = parse_ini_file("../../registered_phid/" . $who_checkout['user']);
             echo $user_checkout['first_name'] . " " . $user_checkout['last_name'] . " " . $user_checkout['student_id'] . "<br>" . $who_checkout['date'] . "<br><br>";
         }
