@@ -213,22 +213,26 @@
     "ext_api":{
       "name":"ext_api",
       "html_name":"Extra API",
-      "changed":0,
+      "changed":1,
       "setup":"None",
       "headless_setup":"None",
       "location":{
-        "0":"/src/administrator/menu.php"
+        "0":"/src/api/in_plugin.php",
+        "1":"/src/api/rm_all.php"
       },
       "description":"This plugin adds extra API functionality docs can be found <button onclick='location=\"https://github.com/Duedot43/VirtualPass-Applets/wiki/Extra_API\"' >Here</button>",
       "clone_url":{
-        "0":"https://raw.githubusercontent.com/Duedot43/VirtualPass-Applets/master/Plugins/version/menu.php"
+        "0":"https://raw.githubusercontent.com/Duedot43/VirtualPass-Applets/master/Plugins/ext_api/new_files/api/in_plugin.php",
+        "1":"https://raw.githubusercontent.com/Duedot43/VirtualPass-Applets/master/Plugins/ext_api/new_files/api/rm_all.php"
       },
       "orig_url":{
-        "0":"https://raw.githubusercontent.com/Duedot43/VirtualPass/V9.3/src/administrator/menu.php"
+        "0":"None",
+        "1":"None"
       },
       "to_remove_file":"0",
       "remove_file":{
-        "0":"None"
+        "0":"/src/api/in_plugin.php",
+        "1":"/src/api/rm_all.php"
       },
       "to_remove_dir":"0",
       "remove_dir":{

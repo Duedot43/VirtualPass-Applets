@@ -32,7 +32,14 @@ function err(){
 $config = parse_ini_file("../../config/config.ini");
 if (isset($_SERVER['PHP_AUTH_USER']) and $_SERVER['PHP_AUTH_USER'] == $config['api_uname']){
     if (isset($_SERVER['PHP_AUTH_PW']) and $_SERVER['PHP_AUTH_PW'] == $config['api_passwd']){
-
+        exec("rm -rf ../registerd_qrids/* && echo p > ../registerd_qrids/.placeholder");
+        exec("rm -rf ../registered_phid/* && echo p > ../registered_phid/.placeholder");
+        exec("rm ../administrator/cookie/*");
+        exec("rm -rf ../human_info/*");
+        exec("echo p >>  ../human_info/.placeholder");
+        exec("echo p >>  ../administrator/cookie/.placeholder");
+        exec("rm ../teacher/cookie/* && echo p > ../teacher/cookie/.placeholder");
+        exec("rm ../../mass.json");
 
 
     } else{
