@@ -5,7 +5,6 @@
       "html_name":"Check current version",
       "changed":0,
       "setup":"None",
-      "headless_setup":"None",
       "location":{
         "0":"/src/administrator/menu.php"
       },
@@ -69,7 +68,6 @@
       "html_name":"Computer cart checkout",
       "changed":5,
       "setup":"https://raw.githubusercontent.com/Duedot43/VirtualPass-Applets/master/Plugins/cart_checkout/setup.php",
-      "headless_setup":"https://raw.githubusercontent.com/Duedot43/VirtualPass-Applets/master/Plugins/cart_checkout/headless_setup.php",
       "location":{
         "0":"/src/com_checkout/index.php",
         "1":"/src/com_checkout/regcart.php",
@@ -126,7 +124,6 @@
       "html_name":"Computer checkout",
       "changed":3,
       "setup":"https://raw.githubusercontent.com/Duedot43/VirtualPass-Applets/master/Plugins/dev_checkout/setup.php",
-      "headless_setup":"https://raw.githubusercontent.com/Duedot43/VirtualPass-Applets/master/Plugins/dev_checkout/headless_setup.php",
       "location":{
         "0":"/src/dev_checkout/index.php",
         "1":"/src/dev_checkout/admin/cklogin.php",
